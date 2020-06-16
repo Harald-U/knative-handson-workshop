@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld
+spec:
+  template:
+    metadata:
+      name: helloworld-v2
+    spec:
+      containers:
+        - image: docker.io/haraldu/helloworld-nodejs:1
+          env:
+            - name: TARGET
+              value: "Node.js Sample v2 -- UPDATED"
+
