@@ -20,6 +20,8 @@ This workshop will focus on Knative Serving and will cover the following topics:
 1. [Scaling](docs/6-Scaling.md)
 1. [Debugging](docs/7-Debugging.md)
 
+To complete this workshop, basic understanding of Kubernetes and application deployment on Kubernetes is absolutely required!
+
 ## Resources:
 
 You can find detailed information and learn more about Knative here:
