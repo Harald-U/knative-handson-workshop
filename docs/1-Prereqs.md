@@ -49,14 +49,32 @@ We will work with the cluster in the command line mostly, using different CLIs. 
    ibmcloud ks cluster ls
    ```
    This should display the name of your cluster, its ID, and a few other things
+1. Create an environment variable $CLUSTER_NAME that conatins the name of your cluster.
+  
+   Example:
+   ```
+   export CLUSTER_NAME=mycluster-ams03-b3c.4x16
+   ```  
 1. Download the cluster configuration for 'kubectl':
    ```
-   ibmcloud ks cluster config --cluster [cluster_name]
+   ibmcloud ks cluster config --cluster $CLUSTER_NAME
    ```
    ![cloudshell](images/cloudshell.png)   
 1. Test access to the cluster by displaying the available namespaces:
    ```
    kubectl get namespace
    ```
-   
+
+## 4. Get the code
+
+In your Cloud Shell enter the following command to download the code from Github:
+
+```
+git clone https://github.com/Harald-U/knative-handson-workshop.git
+cd knative-handson-workshop/code
+```
+
+---
+
+__Continue with the next part [Installing Knative](2-InstallKnative.md)__
       
