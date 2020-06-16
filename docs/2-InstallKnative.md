@@ -16,7 +16,7 @@ IKS offers add-ons to Kubernetes, namely Istio and Knative. They will be automat
 1. The installation status will show a green check mark and "Normal - Addon Ready"
 when Knative and Istio have been installed successfully.
 
-1. In Cloud Shell check the Kubernetes namespaces:
+1. In the IBM Cloud Shell check the Kubernetes namespaces:
 
    ```
    kubectl get ns
@@ -24,20 +24,21 @@ when Knative and Istio have been installed successfully.
    Output:
    ```
    NAME               STATUS   AGE
-default            Active   18h
-ibm-cert-store     Active   18h
-ibm-operators      Active   18h
-ibm-system         Active   18h
-istio-system       Active   12m
-knative-eventing   Active   12m
-knative-serving    Active   12m
-knative-sources    Active   12m
-kube-node-lease    Active   18h
-kube-public        Active   18h
-kube-system        Active   18h
-tekton-pipelines   Active   12m
+   default            Active   18h
+   ibm-cert-store     Active   18h
+   ibm-operators      Active   18h
+   ibm-system         Active   18h
+   istio-system       Active   12m
+   knative-eventing   Active   12m
+   knative-serving    Active   12m
+   knative-sources    Active   12m
+   kube-node-lease    Active   18h
+   kube-public        Active   18h
+   kube-system        Active   18h
+   tekton-pipelines   Active   12m
    ```
-   Notice 'istio-system# and the namespaces starting with 'knative-'
+   
+   Notice 'istio-system' and the namespaces starting with 'knative-'
    
    If you like check the pods in each of these namespaces.
    
