@@ -30,19 +30,19 @@ spec:
       revisionName: helloworld-v2
       percent: 25
 ```
-This will create a 75% / 25% distribution between revisions V1 / v2.
+Those additional 7 lines of code will create a 75% / 25% distribution between revisions -v1 / -v2.
 
 1. Open a second session in IBM Cloud Shell (click on the plus sign) and start this command:
    ```
    watch kubectl get pod
    ```
 
-1. In the first IBM Cloud Shell session deploy the change with:
+1. In the first IBM Cloud Shell session deploy the change:
    ```
    kubectl apply -f service-v2-canary.yaml
    ```
    
-1. Still in the first IBM Cloud Shell session, extecute the `curl` within a `watch`:
+1. Still in the first IBM Cloud Shell session, execute the `curl` within a `watch`:
    ```
    watch curl http://helloworld....appdomain.cloud  
    ```
@@ -54,7 +54,7 @@ This will create a 75% / 25% distribution between revisions V1 / v2.
    helloworld-v2-deployment-5456b55564-6zrvc   2/2     Running   0          34s
    ```
    
-   In the first Cloud Shell session, you can see output from v1 and v2, but v1 output will be more than v2 (75 % vs. 25 %).
+   In the first Cloud Shell session, you can see output from v1 and v2, but v1 output will be more often than v2 (75 % vs. 25 %).
    
 
    If you terminate the `watch curl` in session one, you can observe in session two how the two pods will terminate eventually.

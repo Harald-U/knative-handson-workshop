@@ -135,7 +135,7 @@ helloworld-v1-deployment-ff8d96cf5-72pfd   2/2     Running   0          11s
    ```
    Notice the count for READY: 2 / 2 
    
-   2 of 2 containers are started in the pod! Remember that installation of the Knative add-on included Istio. What we see here is Istio at work: Knative/Istio injects an Envoy sidecar into the helloworld-v1 pod, this is the second container we are seeing in the count!
+   2 of 2 containers are started in the pod! Remember that the installation of the Knative add-on included Istio. What we see here is Istio at work: Knative/Istio injects an Envoy sidecar into the helloworld-v1 pod, this is the second container we are seeing in the count!
    
 1. What has been created on Kubernetes?
 

@@ -1,8 +1,8 @@
 # Knative Auto-Scaling
 
-Scale to zero is an interesting feature but without additional tricks (like pre-started containers or pods, which aren't available in Knative) it can be annoying because users have to wait until a new pod is started and ready to receive requests. Or it can lead to problems like time-outs in a microservices architecture if a scaled-to-zero service is called by another service and has to be started first and takes some time to start (e.g. traditional Java based service). 
+Scale to zero is an interesting feature but without additional tricks (like pre-started containers or pods, which aren't available in Knative) it can be annoying because users may have to wait until a new pod is started and ready to receive requests. Or it can lead to problems like time-outs in a microservices architecture if a scaled-to-zero service is called by another service and has to be started first and takes some time to start (e.g. traditional Java based service). 
 
-On the other hand, if our application / microservice is hit hard with requests, a single pod may not be sufficient to serve them and we may need to scale up. And preferably scale up and down automatically.
+On the other hand, if our application / microservice is hit hard with many requests, a single pod may not be sufficient to serve them and we may need to scale up. And preferably scale up and down automatically.
 
 Auto-scaling is accomplished by simply adding a few annotation statements to the Knative Service description, *service-v3-scaling.yaml*:
 ```
@@ -28,16 +28,16 @@ spec:
             - name: TARGET
               value: "HelloWorld Sample v3 -- Scaling"
 ```
-`minScale: "1"` prevents scale to zero, there will always be at least 1 pod active.
-`maxScale: "5"` will allow to start a maximum of 5 pods.
-`target: "1"` limits every started pod to 1 concurrent request at a time, this is just to make it easier to demo. 
+* `minScale: "1"` prevents scale to zero, there will always be at least 1 pod active.
+* `maxScale: "5"` will allow to start a maximum of 5 pods.
+* `target: "1"` limits every started pod to 1 concurrent request at a time, this is just to make it easier to demo. 
 
 
 1. Deploy as usual (`kubectl apply ...`) and test if it works (`curl ...`).
 
 1. Download the `hey` load generator tool into your IBM Cloud Shell session and make it executable:
    ```
-   wget https://storage.googleapis.com/hey-release/hey_linux_amd64 hey
+   wget https://storage.googleapis.com/hey-release/hey_linux_amd64
    mv hey_linux_amd64 hey
    chmod +x hey
    ```
@@ -57,7 +57,7 @@ spec:
    helloworld-v3-deployment-7c6bd88f95-7kd86    2/2     Running   0          48s
    helloworld-v3-deployment-7c6bd88f95-96z75    2/2     Running   0          48s
    helloworld-v3-deployment-7c6bd88f95-dkjdr    2/2     Running   0          48s
-   helloworld-v3-  deployment-7c6bd88f95-m75x4  2/2     Running   0          9m50s
+   helloworld-v3-deployment-7c6bd88f95-m75x4    2/2     Running   0          9m50s
    helloworld-v3-deployment-7c6bd88f95-zftw5    2/2     Running   0          48s
    ```
 5. Check the output of the `hey`command, for example the histogram:

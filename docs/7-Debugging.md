@@ -19,7 +19,7 @@ There are new places to look for information as to why a Knative service doesnâ€
    NAME          URL                                                   LATEST   AGE    CONDITIONS   READY   REASON
    authors-jee   http://authors-jee-knativetutorial.apps-crc.testing            3m7s   0 OK / 3     False   RevisionMissing : Configuration "authors-jee" does not have any ready Revision.
    ```
-   It is normal and to be expected that the revision is not available for some time immediately after the deployment because the application container needs to start first. But in this example the revision isnâ€™t available (ready) after over 3 minutes and that is not normal.
+   It is normal and to be expected that the revision is not available for some time immediately after the deployment because the application container needs to start first. A revision is ready when the container successfully started. But in this example the revision isnâ€™t available (ready) after over 3 minutes and that is not normal.
    
 1. Check the pod(s):
    ```
@@ -31,7 +31,8 @@ There are new places to look for information as to why a Knative service doesnâ€
    ```
    This is bad: no pod means no logs to look at.
    
-1. Check the revision.
+1. Check the revision status.
+
    This is a real example:
    ```
    $ kubectl get revision
@@ -62,6 +63,6 @@ There are new places to look for information as to why a Knative service doesnâ€
          status: "False"
          type: ResourcesAvailable
     ```       
-    Here you can see in one of the conditions that we were under CPU pressure in the cluster.
+    Here you can see in one of the status messages that we were under CPU pressure in the cluster. The pod was "unschedulable". 
     
-    
+    This link leads to the [Debugging issues with your application](https://knative.dev/docs/serving/debugging-application-issues/) on the Knative docs site.
