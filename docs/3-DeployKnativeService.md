@@ -10,7 +10,7 @@ This is some text from the [Knative Runtime Contract](https://github.com/knative
 > * Logging and monitoring aggregation (telemetry) is important for understanding and debugging the system, as containers might be created or deleted at any time in response to autoscaling.
 > * Multitenancy is highly desirable to allow cost sharing for bursty applications on relatively stable underlying hardware resources.
 
-In other words: Knative positions itself suited for short running processes. You need to provide central logging and monitoring because the pods come and go. And multi-tenant hardware can be provided large enough to scale for peaks and at the same time make effective use of the resources. 
+In other words: Knative positions itself suited for short running, stateless processes. You need to provide central logging and monitoring because the pods come and go. And multi-tenant hardware is best because it can be provided large enough to scale for peaks and at the same time make effective use of the resources. 
 
 Knative uses new terminology for its resources and unfortunately there is some duplication of Kubernetes terms:
 
@@ -25,9 +25,9 @@ And Knative uses a new CLI `kn` which is already installed in IBM Cloud Shell.
 
 ## Sample application
 
-In this workshop we will use the [Hello World - Node.js](https://knative.dev/docs/serving/samples/hello-world/helloworld-nodejs/index.html) code sample from the Knative documentation site.
+In this workshop we will use one of the [Hello World](https://knative.dev/docs/serving/samples/hello-world/) code sample from the Knative documentation site.
 
-I have taken the liberty to copy the sample code into this Github repository so that everything is in one place. 
+I have taken the liberty to copy the Node.js sample code into this Github repository so that everything is in one place. 
 
 This is the application code:
 
@@ -55,7 +55,7 @@ This allows to simply create new versions for deployments = Knative Revisions by
 
 There is also a Dockerfile that can be used to build a container image. You can use it to create your own version and store it in your own Container Image Repository. If you don't like Node.js, the Hello World sample is available in other languages, too.
 
-For this workshop I have a placed a Container Image on Docker Hub (docker.io) in my own repository (haraldu) under the name and tag 'helloworld-nodejs:1'.
+For this workshop we will use a Container Image on Docker Hub (docker.io) provided by IBM. They used to Go sample to build the image.
 
 ## Deploy a Knative Service (ksvc)
 
@@ -81,13 +81,13 @@ spec:
       name: helloworld-v1
     spec:
       containers:
-        - image: docker.io/haraldu/helloworld-nodejs:1
+        - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
               value: "Node.js Sample v1"
 ```
  
-If you are familiar with Kubernetes, you have to start to pay close attention to the first line to see that this is the definition of a Knative Service.
+If you are used to Kubernetes, you have to start to pay close attention to the first line to see that this is the definition of a Knative Service.
 
 The second metadata name 'helloworld-v1' is optional but highly recommended. It is used to provide arbitrary names for the Revisions. If you omit this second name, Knative will use default names for the Revisions (“helloworld-xhz5df”) and if you have more than one version/revision this makes it difficult to distinguish between them.
 

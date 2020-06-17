@@ -9,9 +9,9 @@ There are new places to look for information as to why a Knative service doesnâ€
    Newer versions of Knative may already give an error indication here:
    ```
    NAME         URL                                                                                                                         LATEST          AGE   CONDITIONS   READY   REASON
-   helloworld   http://helloworld....appdomain.cloud   helloworld-v3   81m   1 OK / 3     False   RevisionFailed : Revision "helloworld-v4" failed with message: Unable to fetch image "docker.io/haraldu/helloworld-nodejs:2": failed to resolve image to digest: failed to fetch image information: GET https://index.docker.io/v2/haraldu/helloworld-nodejs/manifests/2: MANIFEST_UNKNOWN: manifest unknown; map[Tag:2].
+   helloworld   http://helloworld....appdomain.cloud   helloworld-v3   81m   1 OK / 3     False   RevisionFailed : Revision "helloworld-v4" failed with message: Unable to fetch image "docker.io/ibmcom/kn-helloworld:2": failed to resolve image to digest: failed to fetch image information: GET https://index.docker.io/v2/ibmcom/kn-helloworld/manifests/2: MANIFEST_UNKNOWN: manifest unknown; map[Tag:2].
    ```
-   The error is far right, but clear: "Unable to fetch image "docker.io/haraldu/helloworld-nodejs:2". There simply is no image with tag 2.
+   The error is far right, but clear: "Unable to fetch image "docker.io/ibmcom/kn-helloworlds:2". There simply is no image with tag 2.
    
    I have seen other examples, like this:
    ```

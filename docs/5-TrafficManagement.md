@@ -18,7 +18,7 @@ spec:
       name: helloworld-v2
     spec:
       containers:
-        - image: docker.io/haraldu/helloworld-nodejs:1
+        - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
               value: "Node.js Sample v2 -- UPDATED"

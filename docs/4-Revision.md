@@ -20,7 +20,7 @@ spec:
       name: helloworld-v2
     spec:
       containers:
-        - image: docker.io/haraldu/helloworld-nodejs:1
+        - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
               value: "Node.js Sample v2 -- UPDATED"
@@ -46,7 +46,7 @@ It also has a new revision name ('helloworld-v2'), if this does not change, Knat
 
    Revisions:  
      100%  @latest (helloworld-v2) [2] (44s)
-           Image:  docker.io/haraldu/helloworld-nodejs:1 (at b17fc9)
+           Image:  docker.io/ibmcom/kn-helloworld (at b17fc9)
   
    Conditions:  
      OK TYPE                   AGE REASON
