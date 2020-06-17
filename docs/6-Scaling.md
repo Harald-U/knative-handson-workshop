@@ -26,7 +26,7 @@ spec:
         - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
-              value: "Node.js Sample v3 -- Scaling"
+              value: "HelloWorld Sample v3 -- Scaling"
 ```
 `minScale: "1"` prevents scale to zero, there will always be at least 1 pod active.
 `maxScale: "5"` will allow to start a maximum of 5 pods.

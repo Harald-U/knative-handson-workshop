@@ -23,7 +23,7 @@ spec:
         - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
-              value: "Node.js Sample v2 -- UPDATED"
+              value: "HelloWorld Sample v2 -- UPDATED"
 ```
 
 Version 2 has a new value for the TARGET environment variable. 
@@ -58,7 +58,7 @@ It also has a new revision name ('helloworld-v2'), if this does not change, Knat
    
 1. Test it with `curl`, output:
    ```
-   Hello Node.js Sample v2 -- UPDATED!
+   Hello HelloWorld Sample v2 -- UPDATED!
    ```   
 1. Display the Revisions:
    ```

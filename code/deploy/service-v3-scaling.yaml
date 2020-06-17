@@ -18,5 +18,5 @@ spec:
         - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
-              value: "Node.js Sample v3 -- Scaling"
+              value: "HelloWorld Sample v3 -- Scaling"
 

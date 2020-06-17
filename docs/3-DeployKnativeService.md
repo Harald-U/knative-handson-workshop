@@ -25,7 +25,7 @@ And Knative uses a new CLI `kn` which is already installed in IBM Cloud Shell.
 
 ## Sample application
 
-In this workshop we will use one of the [Hello World](https://knative.dev/docs/serving/samples/hello-world/) code sample from the Knative documentation site.
+In this workshop we will use one of the [Hello World](https://knative.dev/docs/serving/samples/hello-world/) code samples from the Knative documentation site.
 
 I have taken the liberty to copy the Node.js sample code into this Github repository so that everything is in one place. 
 
@@ -53,9 +53,9 @@ When you make a GET request to the applications root URI ('/') it will respond w
 
 This allows to simply create new versions for deployments = Knative Revisions by just changing the content of TARGET. Not very sophisticated but sufficient to show the principles of Knative.
 
-There is also a Dockerfile that can be used to build a container image. You can use it to create your own version and store it in your own Container Image Repository. If you don't like Node.js, the Hello World sample is available in other languages, too.
+There is also a Dockerfile that can be used to build a container image. You can use it to create your own version and store it in your own Container Image Repository. If you don't like Node.js, the Hello World sample is available in other languages, too: Go, Java, PHP, Python, Ruby, etc.
 
-For this workshop we will use a Container Image on Docker Hub (docker.io) provided by IBM. They used to Go sample to build the image.
+For this workshop we will use a Container Image on Docker Hub (docker.io) provided by IBM. They used the Helloworld Go sample to build the image.
 
 ## Deploy a Knative Service (ksvc)
 
@@ -69,7 +69,7 @@ In IBM Cloud Shell change to the knative-handson-workshop/code/deploy directory:
 cd deploy
 ```
 
-We will deploy the first revision aof the helloworld service with the file *service.yaml*:
+We will deploy the first revision of the helloworld service with the file *service.yaml*:
 ```
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -84,12 +84,12 @@ spec:
         - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
-              value: "Node.js Sample v1"
+              value: "HelloWorld Sample v1"
 ```
  
-If you are used to Kubernetes, you have to start to pay close attention to the first line to see that this is the definition of a Knative Service.
+If you are used to Kubernetes, you have to start to pay close attention to the apiVersion to see that this is the definition of a Knative Service.
 
-The second metadata name 'helloworld-v1' is optional but highly recommended. It is used to provide arbitrary names for the Revisions. If you omit this second name, Knative will use default names for the Revisions (“helloworld-xhz5df”) and if you have more than one version/revision this makes it difficult to distinguish between them.
+The second metadata name 'helloworld-v1' is optional but highly recommended. It is used to provide arbitrary names for the Revisions. If you omit this second name, Knative will use default names for the Revisions (e.g. “helloworld-xhz5df”) and if you have more than one version/revision this makes it difficult to distinguish between them.
 
 The 'spec' part is 'classic' Kubernetes, it describes the location and name of the Container image and it defines the TARGET environment variable that I described in section "Sample Application".
 
@@ -108,20 +108,20 @@ The 'spec' part is 'classic' Kubernetes, it describes the location and name of t
    kn service list
    ```
 
-   Output:
+   Output (**Note:** Throughout the instructions the URL is always shortened to make it more readable):
    ```
    NAME         URL                                                     LATEST          AGE   CONDITIONS   READY   REASON
    helloworld   http://helloworld-default.mycluster...appdomain.cloud   helloworld-v1   61s   3 OK / 3     True    
    ```
 
-1. Copy the URL ('http://helloworld ...') and open it with `curl`:
+1. Copy the URL ('http://helloworld ...') and open it with `curl` or in your browser:
 
    ```
    curl http://helloworld-default.mycluster...appdomain.cloud
    ```
    Output:
    ```
-   Hello Node.js Sample v1!
+   Hello HelloWorld Sample v1!
    ```
 1. Check the status of the 'helloworld' pod:
    ```

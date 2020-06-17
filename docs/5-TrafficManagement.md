@@ -21,7 +21,7 @@ spec:
         - image: docker.io/ibmcom/kn-helloworld
           env:
             - name: TARGET
-              value: "Node.js Sample v2 -- UPDATED"
+              value: "HelloWorld Sample v2 -- UPDATED"
   traffic:
     - tag: v1
       revisionName: helloworld-v1
