@@ -1,8 +1,10 @@
 # Installing Knative
 
-The Kubernetes cluster you have been assigned and you will use during this workshop is provided by the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-getting-started), IKS. 
+Knative [requires a networking layer with an Ingress](https://knative.dev/docs/install/any-kubernetes-cluster/) that is not part of the Knative installation itself. There are several options, Istio is one of them, another one is [Kourier](https://github.com/knative/net-kourier) which is actually maintained now by the Knative project. Others are Ambassador, Contour, Glue, and Kong. Red Hat OpenShift Serverless, the OpenShift version of Knative, uses Kourier. We will use Istio in this lab, it is already available on the IBM Cloud.
 
-IKS offers add-ons to Kubernetes, namely Istio and Knative. They will be automatically installed and managed by IBM. There is a cluster size requirement for Istio (minimum 3 worker nodes) which is also applicable to Knative because it requires Istio.
+The Kubernetes cluster that has been assigned to you and that you will use during this workshop is provided by the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-getting-started), IKS. 
+
+IKS offers add-ons to Kubernetes, namely Istio and Knative. They will be automatically installed and managed by IBM. There is a cluster size requirement for Istio (minimum 3 worker nodes) which is also applicable to Knative because it requires Istio. The pre-provisioned clusters meet the requirement. Installing the Knative add-on automatically installs Istio if required. 
 
 1. To install Knative, go to the 'Add-ons' page of your cluster:
    ![IKS add-ons](images/add-ons.png)
