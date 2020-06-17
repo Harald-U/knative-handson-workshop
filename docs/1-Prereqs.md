@@ -6,7 +6,7 @@ We will use pre-provisioned Kubernetes clusters on the IBM Cloud for this worksh
 
 1. Register at [https://ibm.biz/developer-dach](https://ibm.biz/developer-dach).
 
-    We need your email address, your name, your country, and a password. Registration is free and without any obligations.
+    We need your email address, a password, your name, and your country. During the registration, we will send a verification code to your email address that you have to enter into the registration form. Registration is free and without any obligations.
 
 1. Once you registered, check the email account used during registration for a confirmation mail. Click on the link within.
 

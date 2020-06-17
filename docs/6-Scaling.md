@@ -62,23 +62,29 @@ spec:
    ```
 5. Check the output of the `hey`command, for example the histogram:
    ```
-   Response time histogram:
-  0.009 [1]     |
-  0.035 [47400] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  0.061 [9506]  |■■■■■■■■
-  0.087 [557]   |
-  0.113 [117]   |
-  0.139 [41]    |
-  0.165 [10]    |
-  0.191 [7]     |
-  0.217 [5]     |
-  0.244 [7]     |
-  0.270 [33]    |
-  ```
-  None of the requests took much longer than a quarter of a second. Thats because one pod is always started and can take the initial brunt of the requests.
+    Response time histogram:
+    0.009 [1]     |
+    0.035 [47400] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    0.061 [9506]  |■■■■■■■■
+    0.087 [557]   |
+    0.113 [117]   |
+    0.139 [41]    |
+    0.165 [10]    |
+    0.191 [7]     |
+    0.217 [5]     |
+    0.244 [7]     |
+    0.270 [33]    |
+   ```
+   None of the requests took much longer than a quarter of a second. Thats because one pod is always started and can take the initial brunt of the requests.
   
-This concludes the main part of the Knative workshop.   
-  
+**This concludes the main part of the Knative workshop.**   
+
+The IBM Cloud documentation of Knative has a collection of [useful Knative Serving settings](https://cloud.ibm.com/docs/containers?topic=containers-serverless-apps-knative#knative-service-settings), including:
+
+* Scaling based on CPU or number of requests
+* Changing default container port
+* Creating private (cluster internal) only services
+etc.
   
 ---
 
