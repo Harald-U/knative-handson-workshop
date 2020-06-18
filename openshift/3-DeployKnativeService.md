@@ -53,13 +53,15 @@ When you make a GET request to the applications root URI ('/') it will respond w
 
 This allows to simply create new versions for deployments = Knative Revisions by just changing the content of TARGET. Not very sophisticated but sufficient to show the principles of Knative.
 
-There is also a Dockerfile that can be used to build a container image. You can use it to create your own version and store it in your own Container Image Repository. If you don't like Node.js, the Hello World sample is available in other languages, too: Go, Java, PHP, Python, Ruby, etc.
+There is also a Dockerfile that can be used to build a container image. You can use it to create your own version and store it in your own Container Image Repository or build it on OpenShift directly using a binary build or S2I.
+
+If you don't like Node.js, the Hello World sample is available in other languages, too: Go, Java, PHP, Python, Ruby, etc.
 
 For this workshop we will use a Container Image on Docker Hub (docker.io) provided by IBM. They used the Helloworld Go sample to build the image.
 
 ## Deploy a Knative Service (ksvc)
 
-Throughout this workshop we will use the 'default' namespace of the Kubernetes cluster.
+Throughout this workshop we will use the 'default' project (namespace) of the OpenShift cluster.
 
 Knative deployments use YAML files just like Kubernetes but much simpler.
 
@@ -96,7 +98,7 @@ The 'spec' part is 'classic' Kubernetes, it describes the location and name of t
 1. Deploy the service with:
 
    ```
-   kubectl apply -f service.yaml
+   oc apply -f service.yaml
    ```
    Output:
    ```
@@ -123,15 +125,16 @@ The 'spec' part is 'classic' Kubernetes, it describes the location and name of t
    ```
    Hello HelloWorld Sample v1!
    ```
+
 1. Check the status of the 'helloworld' pod:
    ```
-   kubectl get pod
+   oc get pod
    ```
    If the result is 'No resources found in default namespace.' then execute the `curl` command again, the pod has then been scaled down to zero already. This happens by default after some 60 seconds.
    Expected output:
    ```
    NAME                                       READY   STATUS    RESTARTS   AGE
-helloworld-v1-deployment-ff8d96cf5-72pfd   2/2     Running   0          11s
+   helloworld-v1-deployment-ff8d96cf5-72pfd   2/2     Running   0          11s
    ```
    Notice the count for READY: 2 / 2 
    
@@ -141,7 +144,7 @@ helloworld-v1-deployment-ff8d96cf5-72pfd   2/2     Running   0          11s
 
    The deployment of a Knative Service with a simple YAML file creates a whole set of objects in Kubernetes. Check with:
    ```
-   kubectl get all
+   oc get all
    ```
    Output:
    ```
@@ -174,30 +177,26 @@ helloworld-v1-deployment-ff8d96cf5-72pfd   2/2     Running   0          11s
 
     There is 1 pod, 3 services, 1 deployment, and 1 replicaset, all are Kubernetes objects. To create all this in Kubernetes itself would have taken a lot more than 14 lines of YAML code.
       
-    Plus, for Knative there is 1 Service, 1 Route, 1 Configuration, 1 Revision which are the objects described in the very beginning of this section. 
-    
-## Scale to Zero
+    Plus, for Knative there is 1 Service, 1 Route, 1 Configuration, 1 Revision which are the objects described in the very beginning of this section.
 
-1. Execute the `curl` command from before again 
-1. Watch the helloworld pod with:
-   ```
-   watch kubectl get pod
-   ```
-1. Output immediately after the `curl`:
-   ```
-   NAME                                       READY   STATUS    RESTARTS   AGE
-   helloworld-v1-deployment-ff8d96cf5-dc9qk   2/2     Running   0          21s
-   ```
-   About 60 seconds later:
+1. Now we will look at this in the OpenShift Web Console. Open the 'Developer' view, 'Topology', make sure the 'default' project is selected:
+   ![ksvc console](images/ksvc-console.png)
 
-   ```
-   NAME                                       READY   STATUS        RESTARTS   AGE
-   helloworld-v1-deployment-ff8d96cf5-hgpfv   2/2     Terminating   0          68s
-   ```
-   This is the effect of Knative Scale to Zero. The default timeout is 60 seconds of no activity.
+   The OpenShift Web Console is able to visualize Knative objects:
+   * A Knative Service (KSVC)
+   * A Revision (REV)
+   And when you click on KSVC you even see the Route (RT)
+
+1. Click on the Route. It will display the output ("Hello HelloWorld Sample v1!")
+
+1. Go back to the OpenShift Web Console. 
+   Notice that the Revision scaled up to 1 and the 1 has a blue circle. If you wait a moment (some 60 seconds) it will scale back to 0 with an empty circle.
+
+   This is the effect of **Knative Scale to Zero**. The default timeout is 60 seconds of no activity.
    
-   If you access the service again (`curl` or browser) another pod is spun up and serves the request.        
-    
+   If you access the service again another pod is spun up and serves the request.        
+
+
 ---
 
 __Continue with the next part [Knative Revisions](4-Revision.md)__    
