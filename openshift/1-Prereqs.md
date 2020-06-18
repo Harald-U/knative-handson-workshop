@@ -4,7 +4,7 @@
 
 We will use pre-provisioned Red Hat OpenShift clusters on the IBM Cloud for this workshop. You need an IBM Cloud Account to assign yourself one of these clusters:
 
-1. You can register at [https://ibm.biz/developer-dach](https://ibm.biz/developer-dach).
+1. You can register at [https://cloud.ibm.com](https://cloud.ibm.com).
 
     We need your email address, a password, your name, and your country. 
     
@@ -12,7 +12,7 @@ We will use pre-provisioned Red Hat OpenShift clusters on the IBM Cloud for this
     
     Registration is free and without any obligations.
 
-1. Logon to the [IBM Cloud](https://cloud.ibm.com) Dashboard.
+1. Logon to the IBM Cloud Dashboard [https://cloud.ibm.com](https://cloud.ibm.com).
 
 ## 2. Assign yourself a pre-provisoned cluster
 
@@ -28,7 +28,7 @@ In this step you will assign yourself a pre-provisioned cluster.
    
 ## 3. Work Environment
 
-To see details about your assigned cluster and access the Kubernetes dashboard follow these steps:
+To see details about your assigned cluster and access the OpenShift Web Console follow these steps:
 
 1. Go back to the IBM Cloud Dashboard (step 1)
 1. In the title bar, open the Accounts pull-down menu (you may need to refresh your browser) and select the lab account **1840867 - Advowork**:
@@ -48,10 +48,10 @@ We will work with OpenShift in the Web Console and in the command line, using di
 
 1. Access IBM Cloud Shell using the icon in the title bar. Make sure you are in the IBM account (1840867 - Advowork)!:  
    ![cs ico](images/cloudshell-icon.png)
-1. It will take a moment to set up a session. Cloud Shell offers 500 MB of temporary storage, the session will close after 1 hour off inactivity, workspace data will be removed then.
+1. It will take a moment to set up a session. Cloud Shell offers 500 MB of temporary storage, the session will close after 1 hour of inactivity, workspace data will be removed then.
 1. Go back to the OpenShift Web Console and in the upper right corner open the pull down, select "Copy Login Command":
    ![copy login](images/copy-login-command.png)
-1. A new browser tab opens, click on "Display Token", and the next screen, copy the command to "Log in with this token":
+1. A new browser tab opens, click on "Display Token", and on the next screen, copy the command to "Log in with this token":
    ![login-token](images/login-token.png)
 1. Go back to your IBM Cloud Shell session, paste the command and execute it:
    ![oc in cloudshell](images/cloudshell-oc-login.png) 

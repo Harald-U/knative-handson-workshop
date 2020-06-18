@@ -4,7 +4,7 @@ In the last section you have replaced revision v1 of the helloworld app with rev
 
 What if you want to do a canary release and test the new revision/version on a subset of your users?  
 
-This is something you can easily do with Istio. It requires VirtualService and DestinationRule definitions.
+This is something you can easily do with Istio. It requires additional VirtualService and DestinationRule definitions.
 
 Here is the Knative way, *service-v2-canary.yaml*:
 ```

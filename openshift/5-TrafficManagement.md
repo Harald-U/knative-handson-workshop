@@ -4,7 +4,7 @@ In the last section you have replaced revision v1 of the helloworld app with rev
 
 What if you want to do a canary release and test the new revision/version on a subset of your users?  
 
-This is something you can easily do with Istio. It requires VirtualService and DestinationRule definitions.
+This is something you can easily do with Istio. It requires additional VirtualService and DestinationRule definitions.
 
 Here is the Knative way, *service-v2-canary.yaml*:
 ```
@@ -37,7 +37,7 @@ Those additional 7 lines of code will create a 75% / 25% distribution between re
    oc apply -f service-v2-canary.yaml
    ```
    
-1. In The OpenShift Web Console, Topology, you can see that now both revisions are activated, v1 with 75 %, v2 with 25 %.
+1. In the OpenShift Web Console, Topology, you can see that now both revisions are activated, v1 with 75 %, v2 with 25 %.
    ![canary](images/canary.png)
 
    With "Set Traffic Distribution" you can actually change the distribution without modifying and redeploying the YAML file.

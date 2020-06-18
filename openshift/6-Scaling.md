@@ -32,6 +32,7 @@ spec:
 * `maxScale: "5"` will allow to start a maximum of 5 pods.
 * `target: "1"` limits every started pod to 1 concurrent request at a time, this is just to make it easier to demo. 
 
+You can also [scale based on CPU usage or number of requests](https://cloud.ibm.com/docs/containers?topic=containers-serverless-apps-knative#scale-cpu-vs-number-requests).
 
 1. Deploy as usual (`oc apply ...`) and test if it works (`curl ...`).
 
@@ -43,7 +44,7 @@ spec:
    ```
 1. In the OpenShift Web Console, Topology view, notice that 1 pod is started. This 1 pod will not scale to zero (`minScale: "1"`).
 
-1. Copy the URL/link location of the Route in the OpenShift Web Console.
+1. In the OpenShift Web Console copy the URL/link location of the Route.
    
 1. In the IBM Cloud Shell session generate some load on this copied URL:
    (Don't forget the './' !)
@@ -82,4 +83,4 @@ etc.
   
 ---
 
-__Continue with the last part [Knative Debugging Tips](../docs/7-Debugging.md)__
+__Continue with the last part [Knative Debugging Tips](../iks/7-Debugging.md)__

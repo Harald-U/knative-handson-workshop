@@ -4,7 +4,7 @@
 
 We will use pre-provisioned Kubernetes clusters on the IBM Cloud for this workshop. You need an IBM Cloud Account to assign yourself one of these clusters:
 
-1. You can register at [https://ibm.biz/developer-dach](https://ibm.biz/developer-dach).
+1. You can register at [https://cloud.ibm.com](https://cloud.ibm.com).
 
     We need your email address, a password, your name, and your country. 
     
@@ -12,7 +12,7 @@ We will use pre-provisioned Kubernetes clusters on the IBM Cloud for this worksh
     
     Registration is free and without any obligations.
 
-1. Logon to the [IBM Cloud](https://cloud.ibm.com) Dashboard.
+1. Logon to the IBM Cloud Dashboard [https://cloud.ibm.com](https://cloud.ibm.com).
 
 ## 2. Assign yourself a pre-provisoned cluster
 
@@ -45,13 +45,13 @@ We will work with the cluster in the command line mostly, using different CLIs. 
 
 1. Access IBM Cloud Shell using the icon in the title bar. Make sure you are in the IBM account (1840867 - Advowork)!:  
    ![cs ico](images/cloudshell-icon.png)
-1. It will take a moment to set up a session. Cloud Shell offers 500 MB of temporary storage, the session will close after 1 hour off inactivity, workspace data will be removed then.
+1. It will take a moment to set up a session. Cloud Shell offers 500 MB of temporary storage, the session will close after 1 hour of inactivity, workspace data will be removed then.
 1. Enter the command:
    ```
    ibmcloud ks cluster ls
    ```
    This should display the name of your cluster, its ID, and a few other things
-1. Create an environment variable $CLUSTER_NAME that conatins the name of your cluster.
+1. Create an environment variable $CLUSTER_NAME that contains the name of your cluster.
   
    Example:
    ```

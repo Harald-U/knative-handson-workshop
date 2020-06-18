@@ -58,7 +58,7 @@ It also has a new revision name ('helloworld-v2'), if this does not change, Knat
    
 1. Back in the OpenShift Web Console, Topology view:
    ![rev2](images/rev2.png)
-   It hasn't changed a lot, but can notice the revision v2 in the KSVC box, in the 'Resources' view you now see both revisions, but revision v2 has 100%. Its the same 100% we could see the previous step using `kn`.
+   It hasn't changed a lot, but notice the revision v2 in the KSVC box, and in the 'Resources' view you now see both revisions, but revision v2 has 100%. Its the same 100% we could see in the previous step using `kn`.
 
 1. Click on the Route, this will display the output of v2 ("Hello HelloWorld Sample v2 -- UPDATED!")
   Back in the Web Console, a pod will be started for Revision v2. It will scale to zero after a moment. 

@@ -32,6 +32,7 @@ spec:
 * `maxScale: "5"` will allow to start a maximum of 5 pods.
 * `target: "1"` limits every started pod to 1 concurrent request at a time, this is just to make it easier to demo. 
 
+You can also [scale based on CPU usage or number of requests](https://cloud.ibm.com/docs/containers?topic=containers-serverless-apps-knative#scale-cpu-vs-number-requests).
 
 1. Deploy as usual (`kubectl apply ...`) and test if it works (`curl ...`).
 

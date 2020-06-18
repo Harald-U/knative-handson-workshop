@@ -3,7 +3,7 @@
 
 Knative Serving is responsible for deploying and running containers and also for networking and auto-scaling. Auto-scaling in Knative allows scale to zero and is probably the main reason why Knative is referred to as Serverless platform.
 
-This is some text from the [Knative Runtime Contract](https://github.com/knative/serving/blob/master/docs/runtime-contract.md) which helps to position Knative. It compares Kubernetes workloads (general-purpose containers) with Knative workloads (stateless request-triggered containers):
+This is some text from the [Knative Runtime Contract](https://github.com/knative/serving/blob/master/docs/runtime-contract.md) which helps to position Knative. It compares Kubernetes workloads (general-purpose containers) with Knative workloads (stateless request-triggered autoscaled containers):
 
 > In contrast to general-purpose containers, stateless request-triggered (i.e. on-demand) autoscaled containers have the following properties:
 > * Little or no long-term runtime state (especially in cases where code might be scaled to zero in the absence of request traffic).
@@ -89,7 +89,7 @@ spec:
  
 If you are used to Kubernetes, you have to start to pay close attention to the apiVersion to see that this is the definition of a Knative Service.
 
-The second metadata name 'helloworld-v1' is optional but highly recommended. It is used to provide arbitrary names for the Revisions. If you omit this second name, Knative will use default names for the Revisions (e.g. “helloworld-xhz5df”) and if you have more than one version/revision this makes it difficult to distinguish between them.
+The second metadata name 'helloworld-v1' is optional but highly recommended. It is used to predictable names for the Revisions. If you omit this second name, Knative will use default names for the Revisions (e.g. “helloworld-xhz5df”) and if you have more than one version/revision this makes it difficult to distinguish between them.
 
 The 'spec' part is 'classic' Kubernetes, it describes the location and name of the Container image and it defines the TARGET environment variable that I described in section "Sample Application".
 
@@ -127,7 +127,8 @@ The 'spec' part is 'classic' Kubernetes, it describes the location and name of t
    ```
    kubectl get pod
    ```
-   If the result is 'No resources found in default namespace.' then execute the `curl` command again, the pod has then been scaled down to zero already. This happens by default after some 60 seconds.
+   If the result is 'No resources found in default namespace.' then execute the `curl` command again or refresh the browser, the pod has then been scaled down to zero already. This happens by default after some 60 seconds.
+
    Expected output:
    ```
    NAME                                       READY   STATUS    RESTARTS   AGE
@@ -152,6 +153,7 @@ The 'spec' part is 'classic' Kubernetes, it describes the location and name of t
     service/helloworld              ExternalName   <none>           cluster-local....cluster.local   <none>       108m
     service/helloworld-v1           ClusterIP      172.21.234.161   <none>                           80/TCP       108m
     service/helloworld-v1-private   ClusterIP      172.21.220.196   <none>                           80/TCP...    108m
+    [...]    
 
     NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
     deployment.apps/helloworld-v1-deployment   1/1     1            1           108m
