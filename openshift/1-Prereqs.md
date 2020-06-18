@@ -1,10 +1,10 @@
 # Prerequisites
 
-## 1. Create an IBM Cloud Account
+## 1. Access the IBM Cloud
 
 We will use pre-provisioned Red Hat OpenShift clusters on the IBM Cloud for this workshop. You need an IBM Cloud Account to assign yourself one of these clusters:
 
-1. Register at [https://ibm.biz/developer-dach](https://ibm.biz/developer-dach).
+1. You can register at [https://ibm.biz/developer-dach](https://ibm.biz/developer-dach).
 
     We need your email address, a password, your name, and your country. 
     
@@ -12,16 +12,16 @@ We will use pre-provisioned Red Hat OpenShift clusters on the IBM Cloud for this
     
     Registration is free and without any obligations.
 
-1. Once you registered, logon to the [IBM Cloud](https://cloud.ibm.com) Dashboard.
+1. Logon to the [IBM Cloud](https://cloud.ibm.com) Dashboard.
 
 ## 2. Assign yourself a pre-provisoned cluster
 
 In this step you will assign yourself a pre-provisioned cluster. 
 
-1. Your lab instructor will provide a link to an application and a "lab key". Open this application in your browser:
+1. Your lab instructor will provide a link to an application and a "lab key". Open the application in your browser:
    ![granttool1](images/granttool1.png)
    
-2. Enter the lab key provided to you and your IBMid (it is the email address you used to register at the IBM Cloud), agree to the T&Cs, and click "Submit":
+2. Enter the lab key provided and your IBMid (it is the email address you used to register at the IBM Cloud), agree to the T&Cs, and click "Submit":
    ![granttool1](images/granttool2.png)
    
    Of course your cluster will be named differently and the lab account you need to select from the pull-down in the IBM Cloud Dashboard is **1840867 - Advowork**.
@@ -33,7 +33,7 @@ To see details about your assigned cluster and access the Kubernetes dashboard f
 1. Go back to the IBM Cloud Dashboard (step 1)
 1. In the title bar, open the Accounts pull-down menu (you may need to refresh your browser) and select the lab account **1840867 - Advowork**:
    ![account pulldown](images/dashboard-pulldown.png)  
-1. Select OpenShift -> Clusters__ from the burger menu:
+1. Select __OpenShift -> Clusters__ from the burger menu:
    ![clusters](images/dashboard-clusters.png)
 1. This will display your list of available clusters with one entry:
    ![cluster list](images/display-clusters.png)
