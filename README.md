@@ -6,11 +6,12 @@
 
 The [Knative web site](https://knative.dev) describes it as “components build on top of Kubernetes, abstracting away the complex details and enabling developers to focus on what matters.” 
 
-It has two distinct components, originally it were three. The third was called Knative Build, it is now a project of its own: “Tekton“. The remaining parts are:
-* __Knative Serving,__ responsible for deploying and running containers, also networking and auto-scaling. Auto-scaling allows scale to zero and is the main reason why Knative is referred to as Serverless platform.
-* __Knative Eventing,__ connecting Knative services (deployed by Knative Serving) with events or streams of events.
+It has two distinct components, originally it were three. The third was called Knative Build, it is now a project of its own: [Tekton](https://tekton.dev/). 
 
-This workshop will focus on Knative Serving and will cover the following topics:
+* __Knative Serving__ is responsible for deploying and running containers, also networking and auto-scaling. Auto-scaling allows scale to zero and is the main reason why Knative is referred to as Serverless platform.
+* __Knative Eventing__ allows to connect Knative services (deployed by Knative Serving) or other Kubernetes deployments with events or streams of events.
+
+This workshop will **focus on Knative Serving** and will cover the following topics:
 
 1. Prerequisites (access to a Kubernetes cluster, work environment, etc.)
 1. Installing Knative
@@ -20,12 +21,12 @@ This workshop will focus on Knative Serving and will cover the following topics:
 1. Auto-Scaling
 1. Debugging Tips
 
-This workshop has a track for
-* [Knative on IBM Cloud Kubernetes Service (IKS)](iks/1-Prereqs.md)   
+There are two distinct workshop tracks. Your workshop instructor will tell you which one to follow.
 
-__*or*__
+Track 1   | Track 2
+--------- | -----------
+**[Knative on IBM Cloud Kubernetes Service (IKS)](iks/1-Prereqs.md)** | **[OpenShift Serverless on Red Hat OpenShift on IBM Cloud](openshift/1-Prereqs.md)** 
 
-* [OpenShift Serverless on Red Hat OpenShift on IBM Cloud](openshift/1-Prereqs.md) 
 
 
 To complete this workshop, basic understanding of Kubernetes/OpenShift and application deployment on Kubernetes is instrumental!
