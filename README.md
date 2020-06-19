@@ -39,3 +39,19 @@ You can find detailed information and learn more about Knative here:
 2. [Red Hat Knative Tutorial](https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial/index.html)
 3. [Deploying serverless apps with Knative (IBM Cloud Documentation)](https://cloud.ibm.com/docs/containers?topic=containers-serverless-apps-knative)
 
+## Tools:
+
+In this workshop we will be using the IBM Cloud Shell which has all required tools installed.
+
+Should you prefer to run the workshop completely off your own workstation you need the following tools (depending on the track you select):
+
+|  |  |
+|----------------|----|
+|git CLI|https://git-scm.com/downloads |
+|ibmcloud CLI|https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli|
+|ibmcloud plugin|https://cloud.ibm.com/docs/cli?topic=cli-plug-ins -- Install kubernetes-service plugin|
+|oc|Download from OpenShift Web Console, click on question mark|
+|kn|https://knative.dev/docs/install/install-kn/|
+|hey|HTTP Load generator: https://github.com/rakyll/hey|
+
+
