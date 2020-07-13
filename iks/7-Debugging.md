@@ -65,4 +65,4 @@ There are new places to look for information as to why a Knative service doesnâ€
     ```       
     Here you can see in one of the status messages that we were under CPU pressure in the cluster. The pod was "unschedulable". 
     
-    This link leads to the [Debugging issues with your application](https://knative.dev/docs/serving/debugging-application-issues/) on the Knative docs site.
+    There is more information on [Debugging issues with your application](https://knative.dev/docs/serving/debugging-application-issues/) on the Knative docs site.
