@@ -1,10 +1,16 @@
 # Knative Hands-on Workshop
 
+## Why is deploying a Knative service easier than a Kubernetess deployment? 
+
 ![Knative Logo](iks/images/knative-logo.png)
+
+Knative is a framework running on top of Kubernetes that makes it easier to perform common tasks such as scaling up and down, routing traffic, canary deployments, etc. According to the Knative web site it is "abstracting away the complex details and enabling developers to focus on what matters. It solves the 'boring but difficult' parts of deploying and managing cloud native services so you don't have to."
+
+How is the experience of deploying an application on Kubernetes versus Knative?
 
 ## What is Knative? 
 
-The [Knative web site](https://knative.dev) describes it as “components build on top of Kubernetes, abstracting away the complex details and enabling developers to focus on what matters.” 
+It is an additional layer installed on top of Kubernetes. 
 
 It has two distinct components, originally it were three. The third was called Knative Build, it is now a project of its own: [Tekton](https://tekton.dev/). 
 
